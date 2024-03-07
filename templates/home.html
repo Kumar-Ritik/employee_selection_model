@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #1db8df;
+        }
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .output label {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Selection Model</h1>
+        <h2>Input Form</h2>
+        <form id="inputForm">
+            <label for="cityDevelopmentIndex">City Development Index:</label>
+            <input type="number" step="any" id="cityDevelopmentIndex" name="cityDevelopmentIndex"><br>
+
+            <label for="releventExperience">Relevant Experience:</label>
+            <input type="number" step="any" id="releventExperience" name="releventExperience"><br>
+
+            <label for="enrolledUniversity">Enrolled University:</label>
+            <input type="number" step="any" id="enrolledUniversity" name="enrolledUniversity"><br>
+
+            <label for="educationLevel">Education Level:</label>
+            <input type="number" step="any" id="educationLevel" name="educationLevel"><br>
+
+            <label for="majorDiscipline">Major Discipline:</label>
+            <input type="number" step="any" id="majorDiscipline" name="majorDiscipline"><br>
+
+            <label for="experience">Experience:</label>
+            <input type="number" step="any" id="experience" name="experience"><br>
+
+            <label for="companySize">Company Size:</label>
+            <input type="number" step="any" id="companySize" name="companySize"><br>
+
+            <label for="companyType">Company Type:</label>
+            <input type="number" step="any" id="companyType" name="companyType"><br>
+
+            <label for="lastNewJob">Last New Job:</label>
+            <input type="number" step="any" id="lastNewJob" name="lastNewJob"><br>
+
+            <label for="trainingHours">Training Hours:</label>
+            <input type="number" step="any" id="trainingHours" name="trainingHours"><br>
+
+            <input type="submit" value="Calculate">
+        </form>
+
+        <div class="output">
+            <h2>Output</h2>
+            <label for="target">Target:</label>
+            <span id="target"></span>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code...
+    </script>
+</body>
+</html>

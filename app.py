@@ -1,37 +1,38 @@
-import pandas as pd
-from flask import Flask, jsonify, request
+import json
 import pickle
 
-# load model
-model = pickle.load(open('model.pkl','rb'))
+from markupsafe import escape as jinja_escape
+from flask import Flask,request,app,jsonify,url_for,render_template
+import numpy as np
+import pandas as pd
+app=Flask(__name__)
+## Load the model
+regmodel=pickle.load(open('model.pkl','rb'))
+# scalar=pickle.load(open('scaling.pkl','rb'))
+@app.route('/')
+def home():
+    return render_template('home.html')
 
-# app
-app = Flask(__name__)
+@app.route('/predict_api',methods=['POST'])
+def predict_api():
+    data=request.json['data']
+    input_data = np.array(list(data.values())).reshape(1, -1)
+    # print(input_data)
+    # print(np.array(list(input_data.values())).reshape(1,-1))
+    # new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
+    output = regmodel.predict(input_data)
+    output_int = int(output[0])
+    return jsonify(output_int)
 
-# routes
-@app.route('/', methods=['POST'])
-def index():
-    return render_templ
-
+# @app.route('/predict',methods=['POST'])
 # def predict():
-#     # get data
-#     data = request.get_json(force=True)
+#     data=[float(x) for x in request.form.values()]
+#     final_input=scalar.transform(np.array(data).reshape(1,-1))
+#     print(final_input)
+#     output=regmodel.predict(final_input)[0]
+#     return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
 
-#     # convert data into dataframe
-#     data.update((x, [y]) for x, y in data.items())
-#     data_df = pd.DataFrame.from_dict(data)
-
-#     # predictions
-#     result = model.predict(data_df)
-
-#     # send back to browser
-#     output = {'results': int(result[0])}
-
-#     # return data
-#     if int(result[0]) == 0:
-#            return jsonify(results="Motor In Good Condition")
-#     elif int(result[0]) == 1:
-#         return jsonify(results="Motor In Bad Condition")
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__=="__main__":
+    app.run(debug=True)
+   
+     
