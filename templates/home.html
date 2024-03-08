@@ -75,44 +75,45 @@
     <div class="container">
         <h1>Employee Selection Model</h1>
         <h2>Input Form</h2>
-        <form id="inputForm">
+        <form id="inputForm" action="{{ url_for('predict') }}" method="post">
             <label for="cityDevelopmentIndex">City Development Index:</label>
-            <input type="number" step="any" id="cityDevelopmentIndex" name="cityDevelopmentIndex"><br>
+            <input type="number" step="any" id="cityDevelopmentIndex" name="cityDevelopmentIndex" placeholder="Enter data between 0 to 1"><br>
 
             <label for="releventExperience">Relevant Experience:</label>
-            <input type="number" step="any" id="releventExperience" name="releventExperience"><br>
+            <input type="number" step="any" id="releventExperience" name="releventExperience" placeholder="Has relevent experience:1 No relevent experience:0"><br>
 
             <label for="enrolledUniversity">Enrolled University:</label>
-            <input type="number" step="any" id="enrolledUniversity" name="enrolledUniversity"><br>
+            <input type="number" step="any" id="enrolledUniversity" name="enrolledUniversity" placeholder="no_enrollment:0 Part time course:1 Full time course:2"><br>
 
             <label for="educationLevel">Education Level:</label>
-            <input type="number" step="any" id="educationLevel" name="educationLevel"><br>
+            <input type="number" step="any" id="educationLevel" name="educationLevel" placeholder="IF Primary School:0  High School:1  Graduate:2  Masters:3  Phd:4"><br>
 
             <label for="majorDiscipline">Major Discipline:</label>
-            <input type="number" step="any" id="majorDiscipline" name="majorDiscipline"><br>
+            <input type="number" step="any" id="majorDiscipline" name="majorDiscipline" placeholder="IF Humanities:0  Business Degree:1  Arts:2  Other:3  STEM:4  No Major:5"><br>
 
             <label for="experience">Experience:</label>
-            <input type="number" step="any" id="experience" name="experience"><br>
+            <input type="number" step="any" id="experience" name="experience" placeholder="Enter the number of months"><br>
 
             <label for="companySize">Company Size:</label>
-            <input type="number" step="any" id="companySize" name="companySize"><br>
+            <input type="number" step="any" id="companySize" name="companySize" placeholder="Enter the size in mumbers"><br>
 
             <label for="companyType">Company Type:</label>
-            <input type="number" step="any" id="companyType" name="companyType"><br>
+            <input type="number" step="any" id="companyType" name="companyType" placeholder="IF No job:0  Pvt Ltd:1  Funded Startup:2  Public Sector:3  Early Stage  Startup:4  NGO:5  Other:6"><br>
 
             <label for="lastNewJob">Last New Job:</label>
-            <input type="number" step="any" id="lastNewJob" name="lastNewJob"><br>
+            <input type="number" step="any" id="lastNewJob" name="lastNewJob" placeholder="Enter data between 0 to 1"><br>
 
             <label for="trainingHours">Training Hours:</label>
-            <input type="number" step="any" id="trainingHours" name="trainingHours"><br>
+            <input type="number" step="any" id="trainingHours" name="trainingHours" placeholder="IF Primary School:0  High School:1  Graduate:2  Masters:3  Phd:4"><br>
 
-            <input type="submit" value="Calculate">
+            <input type="submit" value="Calculate it">
+            <!-- <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button> -->
         </form>
 
         <div class="output">
             <h2>Output</h2>
             <label for="target">Target:</label>
-            <span id="target"></span>
+            <span id="target">{{ prediction_text }}</span>
         </div>
     </div>
 
